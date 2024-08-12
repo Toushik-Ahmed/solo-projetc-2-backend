@@ -39,10 +39,9 @@ export async function signup(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
   const { email, password } = req.body;
+  console.log(email,password);
   try {
-    const user = await User.findOne(
-       { email:email },
-    );
+    const user = await User.findOne({ email: email });
     if (!user) {
       throw new Error();
     }
@@ -51,6 +50,7 @@ export async function login(req: Request, res: Response) {
     const accessToken = sign({ _id: user.id }, SECRET_KEY);
     res.status(201).send({ accessToken });
   } catch (error) {
+    console.log(error);
     res
       .status(401)
       .send({ error: '401', message: 'email or password is incorrect ' });
