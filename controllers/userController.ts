@@ -39,7 +39,7 @@ export async function signup(req: Request, res: Response) {
 
 export async function login(req: Request, res: Response) {
   const { email, password } = req.body;
-  console.log(email,password);
+
   try {
     const user = await User.findOne({ email: email });
     if (!user) {
