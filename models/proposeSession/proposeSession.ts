@@ -1,8 +1,7 @@
-import { ObjectId } from 'mongodb';
 import mongoose, { Schema } from 'mongoose';
 const proposeSchema = new Schema({
   user: {
-    type: ObjectId,
+    type: String,
     ref: 'User',
     required: true,
   },
@@ -11,19 +10,11 @@ const proposeSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
+  startTime: {
     type: [Date],
     required: true,
   },
 
-  difficulty: {
-    type: String,
-    required: true,
-  },
-  objective: {
-    type: String,
-    required: false,
-  },
 });
 
 const createSession = mongoose.model('Propose', proposeSchema);

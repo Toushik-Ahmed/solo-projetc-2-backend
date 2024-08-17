@@ -8,16 +8,8 @@ import {
 import { authMiddleware } from '../middlewares/auth';
 
 const proposeRouter = Router();
-proposeRouter.post('/interviewdashboard/dashboard', authMiddleware, propose);
-proposeRouter.get(
-  '/interviewdashboard/dashboard',
-  authMiddleware,
-  getAllProposedSession
-);
-proposeRouter.post(
-  '/interviewdashboard/dashboard/getSessionByDate',
-  authMiddleware,
-  getSessionByDate
-);
+proposeRouter.post('/createSession', authMiddleware, propose);
+proposeRouter.get('/', authMiddleware, getAllProposedSession);
+proposeRouter.post('/getSessionByDate', authMiddleware, getSessionByDate);
 
 export default proposeRouter;

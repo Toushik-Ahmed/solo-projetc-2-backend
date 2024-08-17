@@ -6,7 +6,7 @@ import userRouter from './userRouter';
 
 const router = Router();
 router.use('/', userRouter);
-router.use('/', proposeRouter);
+router.use('/interviewdashboard/dashboard', proposeRouter);
 
 router.get(
   '/getLoggedInUser',
