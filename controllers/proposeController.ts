@@ -55,7 +55,10 @@ export async function getAllProposedSession(
   res: Response
 ) {
   try {
-    const getAllSessions = await createSession.find({ user: req.user?._id });
+    const getAllSessions = await createSession.find({
+      user: req.user?._id,
+      startTime: { $gt: moment().toISOString() },
+    });
     return res.status(201).send(getAllSessions);
   } catch (error) {
     console.log(error);
